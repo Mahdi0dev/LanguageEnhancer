@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/flat_card"
+            style="@style/Widget.Neumorph.CardView"
+            android:layout_width="70dp"
+            android:layout_height="80dp"
+            android:layout_weight="0.45">
+
+            <ImageView
+                android:id="@+id/word_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:contentDescription="@string/baseline_text_field_description"
+                android:src="@drawable/baseline_text_fields_24" />
+
+        </soup.neumorphism.NeumorphCardView>
+
+
+        <TextView
+            android:id="@+id/word_and_mean"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:fontFamily="@font/vazir"
+            android:gravity="center"
+            android:text="@string/sample_word_with_mean"
+            android:textColor="@color/text_color" />
+
+        <soup.neumorphism.NeumorphImageButton
+            android:id="@+id/word_star"
+            style="@style/Widget.Neumorph.ImageButton"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_weight="0.05"
+            android:scaleType="centerInside"
+            android:src="@drawable/baseline_star_24"
+            app:neumorph_backgroundColor="@color/card_view_background"
+            app:neumorph_shadowColorDark="@color/shadow_dark"
+            app:neumorph_shadowColorLight="@color/shadow_light" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/word_space"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_color" />
+
+</LinearLayout>

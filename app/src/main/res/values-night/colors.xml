@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="txt_color">#EFEFEF</color>
+    <color name="background">#141414</color>
+    <color name="color_accent">#FFFFFF</color>
+    <color name="main">#010101</color>
+    <color name="shadow_light">#5A5A5A</color>
+    <color name="txt_shadow">#000000</color>
+    <color name="shadow_dark">#5A5A5A</color>
+    <color name="card_view_background">#242424</color>
+    <color name="line_color">#BCBBBB</color>
+    <color name="text_color">#FFEB3B</color>
+</resources>

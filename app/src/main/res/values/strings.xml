@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Language enhancer</string>
+    <string name="sample_word_with_mean">Word: ترجمه</string>
+    <string name="baseline_text_field_description">A Baseline text field Vector</string>
+</resources>
