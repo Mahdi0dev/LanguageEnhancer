@@ -11,4 +11,4 @@
 
 This application is currently not exported as a file with the .apk extension.
 
-## You can contribute; and turn this application into a standard application by adding new features and fixing bugs.
+**You can contribute; and turn this application into a standard application by adding new features and fixing bugs.**
