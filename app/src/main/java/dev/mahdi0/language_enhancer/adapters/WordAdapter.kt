@@ -14,14 +14,11 @@ import dev.mahdi0.language_enhancer.data.Word
 
 class WordAdapter(private val context: Context, private val data: List<Word>) :
     RecyclerView.Adapter<WordAdapter.WordHolder>() {
-    class WordHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
+    class WordHolder(v: View) : RecyclerView.ViewHolder(v) {
         var wordImg: ImageView = v.findViewById(R.id.word_img)
         var wordAndMean: TextView = v.findViewById(R.id.word_and_mean)
         var wordStar: soup.neumorphism.NeumorphImageButton = v.findViewById(R.id.word_star)
         var wordSpacer: View = v.findViewById(R.id.word_space)
-        override fun onClick(p0: View?) {
-            // TODO("Not yet implemented")
-        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordHolder {
