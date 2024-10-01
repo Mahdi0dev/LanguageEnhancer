@@ -50,7 +50,7 @@ class WordAdapter(private val context: Context, private val data: List<Word>) :
             .load("https://picsum.photos/70?rand=${System.currentTimeMillis()}")
             .centerCrop()
             .placeholder(R.drawable.baseline_text_fields_24)
-            .into(holder.wordImg);
+            .into(holder.wordImg)
     }
 
     private fun changeStarImg(
