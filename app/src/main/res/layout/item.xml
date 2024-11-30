@@ -41,11 +41,23 @@
             android:textColor="@color/text_color" />
 
         <soup.neumorphism.NeumorphImageButton
+            android:id="@+id/word_delete"
+            style="@style/Widget.Neumorph.ImageButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_weight="0.02"
+            android:scaleType="centerInside"
+            android:src="@android:drawable/ic_delete"
+            app:neumorph_backgroundColor="@color/card_view_background"
+            app:neumorph_shadowColorDark="@color/shadow_dark"
+            app:neumorph_shadowColorLight="@color/shadow_light" />
+
+        <soup.neumorphism.NeumorphImageButton
             android:id="@+id/word_star"
             style="@style/Widget.Neumorph.ImageButton"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_weight="0.05"
+            android:layout_weight="0.03"
             android:scaleType="centerInside"
             android:src="@drawable/baseline_star_24"
             app:neumorph_backgroundColor="@color/card_view_background"

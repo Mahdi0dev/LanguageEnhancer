@@ -11,13 +11,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import dev.mahdi0.language_enhancer.R
 import dev.mahdi0.language_enhancer.data.Word
+import dev.mahdi0.language_enhancer.db.DbHelper
 
-class WordAdapter(private val context: Context, private val data: List<Word>) :
+class WordAdapter(
+    private val context: Context,
+    private val data: List<Word>,
+    private val dbHelper: DbHelper,
+    private val mainList: RecyclerView
+) :
     RecyclerView.Adapter<WordAdapter.WordHolder>() {
     class WordHolder(v: View) : RecyclerView.ViewHolder(v) {
         var wordImg: ImageView = v.findViewById(R.id.word_img)
         var wordAndMean: TextView = v.findViewById(R.id.word_and_mean)
         var wordStar: soup.neumorphism.NeumorphImageButton = v.findViewById(R.id.word_star)
+        var wordDelete: soup.neumorphism.NeumorphImageButton = v.findViewById(R.id.word_delete)
         var wordSpacer: View = v.findViewById(R.id.word_space)
     }
 
@@ -42,8 +49,13 @@ class WordAdapter(private val context: Context, private val data: List<Word>) :
         changeStarImg(holder, item)
 
         holder.wordStar.setOnClickListener {
-            item.stared = !item.stared
+            item.starred = !item.starred
+            dbHelper.update(item, context)
             changeStarImg(holder, item)
+        }
+
+        holder.wordDelete.setOnClickListener {
+            dbHelper.remove(item, context, mainList, dbHelper)
         }
         Glide
             .with(context)
@@ -58,7 +70,7 @@ class WordAdapter(private val context: Context, private val data: List<Word>) :
         item: Word
     ) {
         holder.wordStar.setImageResource(
-            if (item.stared) {
+            if (item.starred) {
                 R.drawable.baseline_star_24
             } else {
                 R.drawable.baseline_star_border_24

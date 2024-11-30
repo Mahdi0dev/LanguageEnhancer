@@ -1,17 +1,19 @@
 package dev.mahdi0.language_enhancer
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dev.mahdi0.language_enhancer.adapters.WordAdapter
-import dev.mahdi0.language_enhancer.data.MockData
+import dev.mahdi0.language_enhancer.db.DbHelper
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mainList: RecyclerView
     private lateinit var addBtn: soup.neumorphism.NeumorphImageButton
+    private lateinit var dbHelper: DbHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,13 +22,32 @@ class MainActivity : AppCompatActivity() {
         init()
     }
 
+    override fun onResume() {
+        super.onResume()
+        init()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        init()
+    }
+
     private fun init() {
         bindViews()
-        mainList.layoutManager = LinearLayoutManager(this)
-        mainList.adapter = WordAdapter(this, MockData.getDataList())
+        val context = this
+        dbHelper = DbHelper(context)
+        mainList.layoutManager = LinearLayoutManager(context)
+        refreshList(context)
         addBtn.setOnClickListener {
-            Toast.makeText(this, "As soon as possible...", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(context, AddWordActivity::class.java))
+            refreshList(context)
         }
+        refreshList(context)
+    }
+
+
+    private fun refreshList(context: Context) {
+        mainList.adapter = WordAdapter(context, dbHelper.getAll(), dbHelper, mainList)
     }
 
     private fun bindViews() {

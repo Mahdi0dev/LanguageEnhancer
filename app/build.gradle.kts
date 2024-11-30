@@ -11,8 +11,8 @@ android {
         applicationId = "dev.mahdi0.language_enhancer"
         minSdk = 26
         targetSdk = 34
-        versionCode = 1
-        versionName = "Pre-Alpha"
+        versionCode = 2
+        versionName = "Alpha"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
