@@ -1,4 +1,4 @@
-package dev.mahdi0.language_enhancer
+package dev.mahdi0.language_enhancer.view
 
 import android.content.Context
 import android.content.Intent
@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import dev.mahdi0.language_enhancer.R
 import dev.mahdi0.language_enhancer.adapters.WordAdapter
 import dev.mahdi0.language_enhancer.db.DbHelper
 

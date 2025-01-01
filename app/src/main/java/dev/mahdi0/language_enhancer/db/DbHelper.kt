@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import dev.mahdi0.language_enhancer.adapters.WordAdapter
-import dev.mahdi0.language_enhancer.data.Word
+import dev.mahdi0.language_enhancer.model.Word
 
 class DbHelper(context: Context, name: String = "language_enhancer", version: Int = 1) :
     SQLiteOpenHelper(context, name, null, version) {

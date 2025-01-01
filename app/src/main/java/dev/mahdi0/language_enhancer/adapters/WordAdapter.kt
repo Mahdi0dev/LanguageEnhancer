@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import dev.mahdi0.language_enhancer.R
-import dev.mahdi0.language_enhancer.data.Word
+import dev.mahdi0.language_enhancer.model.Word
 import dev.mahdi0.language_enhancer.db.DbHelper
 
 class WordAdapter(

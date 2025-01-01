@@ -1,11 +1,11 @@
-package dev.mahdi0.language_enhancer
+package dev.mahdi0.language_enhancer.view
 
 import android.os.Bundle
 import android.widget.EditText
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import dev.mahdi0.language_enhancer.data.Word
+import dev.mahdi0.language_enhancer.R
+import dev.mahdi0.language_enhancer.controller.AddWordController
 import dev.mahdi0.language_enhancer.db.DbHelper
 import soup.neumorphism.NeumorphButton
 
@@ -14,6 +14,7 @@ class AddWordActivity : AppCompatActivity() {
     private lateinit var meaningEditText: EditText
     private lateinit var addButton: NeumorphButton
     private lateinit var dbHelper: DbHelper
+    private lateinit var controller: AddWordController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -24,24 +25,10 @@ class AddWordActivity : AppCompatActivity() {
     private fun init() {
         bindViews()
         dbHelper = DbHelper(this)
+        controller = AddWordController(dbHelper, this)
         addButton.setOnClickListener {
-            if (wordEditText.text.isEmpty()) {
-                Toast.makeText(this, "Enter the Word!", Toast.LENGTH_SHORT).show()
-            } else if (meaningEditText.text.isEmpty()) {
-                Toast.makeText(this, "Enter the Meaning/Translation!", Toast.LENGTH_SHORT).show()
-            } else {
-                if (dbHelper.insert(
-                        Word(
-                            wordEditText.text.toString(),
-                            meaningEditText.text.toString()
-                        )
-                    )
-                ) {
-                    Toast.makeText(this, "Word Added!", Toast.LENGTH_LONG).show()
-                    finish()
-                } else {
-                    Toast.makeText(this, "This Word already exists!", Toast.LENGTH_SHORT).show()
-                }
+            if (controller.addWord(wordEditText.text, meaningEditText.text)) {
+                finish()
             }
         }
     }
